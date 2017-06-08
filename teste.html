@@ -1,0 +1,38 @@
+<html>
+<head>
+   <script type="text/javascript" src="../library/jquery/jquery-1.11.1.min.js"></script>
+   <script type="text/javascript" src="Util.js"></script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+   $(document).ready(function(){
+      U.Ajax.execute({url:"teste.php", method:"POST", assincrony:true, oncallback:function(retorno){
+         var dados = eval("("+retorno+")");
+         for(var i = 0;i < dados.lista.length;i++){
+            $("<div>").data("grafico-pie",{})
+         }
+      }});
+   })
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart(){
+         var data = new google.visualization.DataTable();
+         data.addColumn('string', 'Categoria');
+         data.addColumn('number', 'Valor');
+         data.addRows([
+            ['Investimento', parseFloat(179.80)],
+            ['Divida', parseFloat(100.00)],
+            ['Lazer', parseFloat(20.00)]
+         ]);
+
+         var options = {"title":"Gastos", "width":400, "height":300, is3D: true};
+
+         var chart = new google.visualization.PieChart(document.getElementById('container'));
+         chart.draw(data, options);
+      }
+   </script>
+</head>
+<body>
+   <div id="container" style="height: 400px"></div>
+</body>
+</html>

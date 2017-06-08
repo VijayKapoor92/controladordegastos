@@ -1,0 +1,35 @@
+body{
+	background-color: #F5F5F5;
+}
+
+.mdl-layout__header, .mdl-layout__tab-bar,.mdl-layout-title{
+	background-color: #000000;
+}
+
+.list-title{
+	list-style-type: none;
+	position: relative;
+	top: 19px;
+	color:#ffffff;
+	text-align: right;
+	margin-right: 10px;
+	padding-bottom:10px;
+	padding-top: 20px;
+}
+
+.img_user_title{
+	border:1px solid #000000;
+	border-radius: 60px;
+	width:50px;
+	height: 48px;
+	text-align: right;
+}
+
+.menu-icon{
+	width: 25px;
+	margin-right: 20px;
+}
+
+.header-current__total{
+	letter-spacing: 2px;
+}
